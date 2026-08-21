@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>莱斯特城 · 球队管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ===== 左侧导航栏 ===== -->
+    <nav class="sidebar">
+        <div class="brand">
+            <img src="https://cmscdnus.yinzcam.com/Toolbox/jsoneditor/FA_LEI/Layer_1v2.png?clxf=t_general_medium" alt="莱斯特城队徽" />
+        </div>
+        <ul class="nav-menu">
+            <li><a class="active" data-view="squad" onclick="switchView('squad')"><i class="fas fa-users"></i> 大名单</a></li>
+            <li><a data-view="academy" onclick="switchView('academy')"><i class="fas fa-user-graduate"></i> 梯队</a></li>
+            <li><a data-view="standings" onclick="switchView('standings')"><i class="fas fa-table"></i> 积分榜</a></li>
+        </ul>
+        <div class="admin-login">
+            <input type="password" id="adminPassword" placeholder="管理员密码 (fnq2016)" />
+            <button id="adminLoginBtn">🔑 管理员登录</button>
+            <span id="adminStatus"></span>
+        </div>
+        <div class="sidebar-footer">v1.0 · 2026</div>
+    </nav>
+
+    <!-- ===== 主内容区域 ===== -->
+    <div class="main-content">
+
+        <!-- ===== 大名单视图 ===== -->
+        <div id="view-squad" class="view-container active">
+            <header class="header">
+                <h1>🦊 一线队大名单 <span>2026/27</span></h1>
+                <div class="header-actions">
+                    <div class="club-badge"><span class="flag-icon flag-icon-gb-eng" style="font-size:1.1rem;"></span> 一线队 · 克莱因蓝</div>
+                    <div class="btn-toggle-group" id="toggleGroup">
+                        <button class="btn-toggle active" data-mode="default">按号码</button>
+                        <button class="btn-toggle" data-mode="position">按位置</button>
+                    </div>
+                    <button class="btn-add" id="btnAddPlayer" style="display:none;"><i class="fas fa-plus"></i> 添加球员</button>
+                </div>
+            </header>
+            <div id="squadContainer"></div>
+            <div class="loan-section" id="loanSection">
+                <div class="section-title"><i class="fas fa-exchange-alt"></i> 租借球员 <span class="count" id="loanCount">0</span></div>
+                <div class="loan-list" id="loanList"></div>
+            </div>
+        </div>
+
+        <!-- ===== 梯队视图 ===== -->
+        <div id="view-academy" class="view-container">
+            <header class="header">
+                <h1>🦊 梯队大名单 <span>2026/27</span></h1>
+                <div class="header-actions">
+                    <div class="club-badge"><span class="flag-icon flag-icon-gb-eng" style="font-size:1.1rem;"></span> U21 · U18</div>
+                    <button class="btn-add" id="btnAddAcademyPlayer" style="display:none;"><i class="fas fa-plus"></i> 添加梯队球员</button>
+                </div>
+            </header>
+            <div id="academyContainer"></div>
+        </div>
+
+        <!-- ===== 积分榜视图 ===== -->
+        <div id="view-standings" class="view-container">
+            <header class="header">
+                <h1>📊 英甲积分榜 <span>2026/27</span></h1>
+                <div class="header-actions">
+                    <div class="club-badge"><span class="flag-icon flag-icon-gb-eng" style="font-size:1.1rem;"></span> League One · 365Scores</div>
+                </div>
+            </header>
+            <div class="standings-wrapper">
+                <div data-widget-type="entityStandings" data-entity-type="league" data-entity-id="2" data-lang="en" data-widget-id="3fedbc35-ff29-4fa8-b1f0-bbb86c0ce956"></div>
+                <div id="powered-by">Powered by<a id="powered-by-link" href="https://www.365scores.com" target="_blank">365Scores.com</a></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== 模态框（编辑球员） ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle"><i class="fas fa-pen" style="color:#FDBE11;"></i> 编辑球员</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <form id="playerForm">
+                <input type="hidden" id="editIndex" value="-1" />
+
+                <label>球衣号码 <span class="hint">(留空则不显示号码，自动排到最后)</span></label>
+                <input type="number" id="formNumber" placeholder="例如 9" />
+
+                <label>显示名称 <span class="hint">(卡片上显示的中文名，默认与中文姓氏一致)</span></label>
+                <input type="text" id="formDisplayName" placeholder="瓦尔迪" />
+
+                <div class="row3">
+                    <div><label>英文名</label><input type="text" id="formEnFirst" placeholder="Jamie" /></div>
+                    <div><label>英文姓</label><input type="text" id="formEnLast" placeholder="VARDY" /></div>
+                </div>
+
+                <div class="row2">
+                    <div><label>中文名 <span class="hint">(备用)</span></label><input type="text" id="formFirstName" placeholder="杰米" /></div>
+                    <div><label>中文姓 <span class="hint">(备用)</span></label><input type="text" id="formLastName" placeholder="瓦尔迪" /></div>
+                </div>
+
+                <label>场上位置</label>
+                <select id="formPosition">
+                    <option value="">未指定</option>
+                    <option value="门将">门将</option>
+                    <option value="后卫">后卫</option>
+                    <option value="中场">中场</option>
+                    <option value="前锋">前锋</option>
+                </select>
+
+                <label>所属梯队</label>
+                <select id="formTeam">
+                    <option value="">一线队</option>
+                    <option value="u21">U21</option>
+                    <option value="u18">U18</option>
+                </select>
+
+                <label>头像 <span class="hint">(拖拽图片到下方区域或点击选择)</span></label>
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-icon" id="dropIcon">📷</div>
+                    <div class="drop-text" id="dropText">拖拽图片到这里，或点击选择</div>
+                    <div class="drop-hint">支持 JPG, PNG, SVG, WEBP</div>
+                    <input type="file" class="file-input" id="fileInput" accept="image/*" />
+                    <div id="avatarPreview" style="display:none; margin-top: 0.5rem;">
+                        <img id="previewImg" class="preview-thumb" src="" alt="头像预览" />
+                        <button type="button" class="clear-avatar" id="clearAvatarBtn">✕ 移除</button>
+                    </div>
+                </div>
+                <input type="hidden" id="formAvatar" value="" />
+
+                <label>国籍代码 <span class="hint">(多个用逗号分隔，如 GB,FR 或 GB-SCT,GB-WLS)</span></label>
+                <input type="text" id="formNationality" placeholder="GB, FR" />
+                <div style="font-size:0.7rem; color:#6b7a93; margin-top:2px;">
+                    💡 英国地区：GB=英格兰，GB-SCT=苏格兰，GB-WLS=威尔士，GB-NIR=北爱尔兰
+                </div>
+
+                <label>租借状态</label>
+                <select id="formLoan">
+                    <option value="">未租借</option>
+                    <option value="租借中">租借中</option>
+                </select>
+
+                <div id="loanClubGroup" style="display:none;">
+                    <label>租借至</label>
+                    <input type="text" id="formLoanClub" placeholder="俱乐部名称" />
+                    <label>租借期限</label>
+                    <input type="text" id="formLoanUntil" placeholder="例如 2026-27" />
+                </div>
+
+                <button type="submit" class="btn-submit" id="formSubmit">保存</button>
+                <button type="button" class="btn-delete" id="btnDelete" style="display:none;">
+                    <i class="fas fa-trash"></i> 删除球员
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- 第三方脚本 -->
+    <script src="https://widgets.365scores.com/main.js"></script>
+    <!-- 主逻辑 -->
+    <script src="app.js"></script>
+
+</body>
+</html>
