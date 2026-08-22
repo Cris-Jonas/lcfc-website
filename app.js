@@ -1,7 +1,7 @@
 // ================================================================
 //  配置
 // ================================================================
-const API_BASE = '/api';
+const API_BASE = 'http://localhost:3000/api';
 let squadData = [];
 let sortMode = 'default';
 let currentView = 'squad';
@@ -591,41 +591,42 @@ if (playerForm) {
             id = squadData[idx].id;
         }
 
+        const formData = new FormData();
+        if (id) formData.append('id', id);
+        formData.append('number', document.getElementById('formNumber').value || '');
+        formData.append('displayName', document.getElementById('formDisplayName').value || '');
+        formData.append('enFirst', document.getElementById('formEnFirst').value || '');
+        formData.append('enLast', document.getElementById('formEnLast').value || '');
+        formData.append('firstName', document.getElementById('formFirstName').value || '');
+        formData.append('lastName', document.getElementById('formLastName').value || '');
+        formData.append('position', document.getElementById('formPosition').value || '');
+        formData.append('team', document.getElementById('formTeam').value || '');
+
         const natStr = document.getElementById('formNationality').value.trim();
-let nationality = natStr ? natStr.split(',').map(s => s.trim().toUpperCase()).filter(s => s.length > 0) : ['GB'];
+        let nationality = natStr ? natStr.split(',').map(s => s.trim().toUpperCase()).filter(s => s.length > 0) : ['GB'];
+        formData.append('nationality', JSON.stringify(nationality));
 
-const loanStatus = loanSelect.value;
-const loanClub = document.getElementById('formLoanClub').value.trim();
-const loanUntil = document.getElementById('formLoanUntil').value.trim();
-let onLoan = null;
-if (loanStatus === '租借中') {
-    onLoan = { to: loanClub || '租借中', until: loanUntil || '' };
-}
+        const loanStatus = loanSelect.value;
+        const loanClub = document.getElementById('formLoanClub').value.trim();
+        const loanUntil = document.getElementById('formLoanUntil').value.trim();
+        let onLoan = null;
+        if (loanStatus === '租借中') {
+            onLoan = { to: loanClub || '租借中', until: loanUntil || '' };
+        }
+        formData.append('onLoan', JSON.stringify(onLoan));
 
-const payload = {
-    id: id || undefined,
-    number: document.getElementById('formNumber').value || '',
-    displayName: document.getElementById('formDisplayName').value || '',
-    enFirst: document.getElementById('formEnFirst').value || '',
-    enLast: document.getElementById('formEnLast').value || '',
-    firstName: document.getElementById('formFirstName').value || '',
-    lastName: document.getElementById('formLastName').value || '',
-    position: document.getElementById('formPosition').value || '',
-    team: document.getElementById('formTeam').value || '',
-    nationality: nationality,
-    onLoan: onLoan,
-    avatar: currentAvatarData || formAvatar.value || null
-};
+        if (fileInput && fileInput.files.length > 0) {
+            formData.append('avatar', fileInput.files[0]);
+        } else if (formAvatar.value) {
+            formData.append('avatar', formAvatar.value);
+        }
 
-try {
-    const res = await fetch(`${API_BASE}/players`, {
-        method: 'POST',
-        headers: { 
-            'Authorization': `Bearer ${adminToken}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-    });
+        try {
+            const res = await fetch(`${API_BASE}/players`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${adminToken}` },
+                body: formData
+            });
             const result = await res.json();
             if (result.success) {
                 showToast('✅ 球员已保存');
@@ -662,7 +663,7 @@ if (btnDelete) {
         }
 
         try {
-            const res = await fetch(`${API_BASE}/players?id=${p.id}`, {
+            const res = await fetch(`${API_BASE}/players/${p.id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${adminToken}` }
             });

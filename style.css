@@ -709,6 +709,76 @@ body {
 .modal .btn-delete:hover {
     background: #c0392b;
 }
+/* ===== 详情弹窗 ===== */
+.modal-wide {
+    max-width: 800px !important;
+    width: 95% !important;
+}
+
+#detailContent {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detail-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+    font-size: 14px;
+    padding: 4px 0;
+}
+.detail-info-grid .label { color: #64748b; }
+.detail-info-grid .value { font-weight: 500; color: #0b1a33; }
+
+.detail-chart-wrap {
+    height: 260px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px;
+    background: #fafbfc;
+}
+
+.detail-history-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-top: 8px;
+}
+.detail-history-form input {
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 13px;
+}
+.detail-history-form button {
+    padding: 4px 16px;
+    border-radius: 6px;
+    border: none;
+    background: #3b82f6;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+.detail-history-form button:hover { background: #2563eb; }
+
+.detail-history-list {
+    max-height: 100px;
+    overflow-y: auto;
+    font-size: 13px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 4px 8px;
+    background: #fafbfc;
+}
+.detail-history-list .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+.detail-history-list .row:last-child { border: none; }
 
 /* 拖拽上传区域 */
 .drop-zone {
