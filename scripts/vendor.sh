@@ -14,7 +14,9 @@ curl -fsSL "https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js" -o "$V/e
 echo "== 下载 flag-icon-css =="
 curl -fsSL "https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css" -o "$V/flag-icon/css/flag-icon.min.css"
 # 下载常用国旗（英、中、及主要足球国家），如需更多可在下面追加
-FLAGS="gb gb-eng gb-sct gb-wls gb-nir fr es de it pt br ar be hr dk nl se no pl jp kr us"
+# 注意：gb-eng/gb-sct/gb-wls/gb-nir 是英国构成国旗帜（flag-icon-css 支持）
+FLAGS="gb gb-eng gb-sct gb-wls gb-nir cn fr es de it pt br ar be hr dk nl se no pl jp kr us \
+cd ng ba au ie jm fi ml tr ma sn gh cm eg za ch at cz ro ua rs si sk hu gr mx co cl uy pe ec ve py cr ca"
 for f in $FLAGS; do
   curl -fsSL "https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/$f.svg" -o "$V/flag-icon/flags/$f.svg"
 done

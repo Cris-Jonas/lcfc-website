@@ -270,7 +270,7 @@ function renderLoanList(players) {
         html += `
             <div class="loan-card">
                 <div class="loan-card-top">
-                    <span class="loan-number">${numberDisplay}</span>
+                    ${numberDisplay ? `<span class="loan-number">${numberDisplay}</span>` : ''}
                     <div class="loan-name-group">
                         <span class="loan-display-name">${displayName}</span>
                         <span class="loan-full-name">${fullName}</span>

@@ -1,0 +1,407 @@
+[
+  {
+    "number": 1,
+    "enFirst": "Jakub",
+    "enLast": "Stolarczyk",
+    "displayName": "雅各布·斯托拉尔奇克",
+    "nationality": [
+      "PL"
+    ],
+    "position": "GK",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 2,
+    "enFirst": "Jayden",
+    "enLast": "Joseph",
+    "displayName": "杰登·约瑟夫",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 4,
+    "enFirst": "Ben",
+    "enLast": "Nelson",
+    "displayName": "本·纳尔逊",
+    "nationality": [
+      "gb-eng",
+      "gb-sct"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 5,
+    "enFirst": "Caleb",
+    "enLast": "Okoli",
+    "displayName": "卡莱布·奥科利",
+    "nationality": [
+      "IT",
+      "NG"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 6,
+    "enFirst": "John",
+    "enLast": "Lundstram",
+    "displayName": "约翰·伦德斯特朗",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 7,
+    "enFirst": "Wes",
+    "enLast": "Burns",
+    "displayName": "韦斯·伯恩斯",
+    "nationality": [
+      "gb-wls"
+    ],
+    "position": "FW",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 8,
+    "enFirst": "Conor",
+    "enLast": "Chaplin",
+    "displayName": "康纳·查普林",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 9,
+    "enFirst": "Admir",
+    "enLast": "Bristrić",
+    "displayName": "阿德米尔·布里斯特里奇",
+    "nationality": [
+      "BA"
+    ],
+    "position": "FW",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 11,
+    "enFirst": "Liam",
+    "enLast": "Cullen",
+    "displayName": "利亚姆·卡伦",
+    "nationality": [
+      "gb-wls"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 12,
+    "enFirst": "Will",
+    "enLast": "Smallbone",
+    "displayName": "威尔·斯莫尔本",
+    "nationality": [
+      "IE",
+      "gb-eng"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 13,
+    "enFirst": "David",
+    "enLast": "Cornell",
+    "displayName": "大卫·康奈尔",
+    "nationality": [
+      "gb-wls"
+    ],
+    "position": "GK",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 14,
+    "enFirst": "Bobby",
+    "enLast": "De Cordova-Reid",
+    "displayName": "博比·德科多瓦-里德",
+    "nationality": [
+      "JM",
+      "gb-eng"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 15,
+    "enFirst": "Harry",
+    "enLast": "Souttar",
+    "displayName": "哈里·苏塔",
+    "nationality": [
+      "AU",
+      "gb-sct"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 16,
+    "enFirst": "Warren",
+    "enLast": "O'Hora",
+    "displayName": "沃伦·奥霍拉",
+    "nationality": [
+      "IE"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 17,
+    "enFirst": "Emil",
+    "enLast": "Riis",
+    "displayName": "埃米尔·里斯",
+    "nationality": [
+      "DK"
+    ],
+    "position": "FW",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 18,
+    "enFirst": "Christian",
+    "enLast": "McFarlane",
+    "displayName": "克里斯蒂安·麦克法兰",
+    "nationality": [
+      "gb-eng",
+      "US"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 20,
+    "enFirst": "Harry",
+    "enLast": "Howell",
+    "displayName": "哈里·豪厄尔",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 21,
+    "enFirst": "Franco",
+    "enLast": "Ravizzoli",
+    "displayName": "佛朗哥·拉维佐利",
+    "nationality": [
+      "AR",
+      "IT"
+    ],
+    "position": "GK",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 23,
+    "enFirst": "Tommy",
+    "enLast": "Watson",
+    "displayName": "汤姆·沃森",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "FW",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 24,
+    "enFirst": "Ilari",
+    "enLast": "Kangasniemi",
+    "displayName": "伊拉里·坎加斯涅米",
+    "nationality": [
+      "FI"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 25,
+    "enFirst": "Louis",
+    "enLast": "Page",
+    "displayName": "路易斯·佩奇",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 26,
+    "enFirst": "Woyo",
+    "enLast": "Coulibaly",
+    "displayName": "沃约·库利巴利",
+    "nationality": [
+      "ML",
+      "FR"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 27,
+    "enFirst": "Kamari",
+    "enLast": "Doyle",
+    "displayName": "卡马里·多伊尔",
+    "nationality": [
+      "gb-eng",
+      "JM"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 29,
+    "enFirst": "Alex",
+    "enLast": "McCarthy",
+    "displayName": "亚历克斯·麦卡锡",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "GK",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 32,
+    "enFirst": "Olabade",
+    "enLast": "Aluko",
+    "displayName": "奥拉巴德·阿卢科",
+    "nationality": [
+      "gb-eng",
+      "NG"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 33,
+    "enFirst": "Luke",
+    "enLast": "Thomas",
+    "displayName": "卢克·托马斯",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "DF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 36,
+    "enFirst": "Sammy",
+    "enLast": "Braybrooke",
+    "displayName": "萨米·布雷布鲁克",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 37,
+    "enFirst": "Will",
+    "enLast": "Alves",
+    "displayName": "威尔·阿尔维斯",
+    "nationality": [
+      "gb-eng",
+      "PT"
+    ],
+    "position": "MF",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": null,
+    "enFirst": "Victor",
+    "enLast": "Kristiansen",
+    "displayName": "维克托·克里斯蒂安森",
+    "nationality": [
+      "DK"
+    ],
+    "position": "DF",
+    "team": "loan",
+    "avatar": "",
+    "onLoanTo": "帕纳辛奈科斯",
+    "onLoanUntil": "2027-06-30"
+  },
+  {
+    "number": null,
+    "enFirst": "Stephy",
+    "enLast": "Mavididi",
+    "displayName": "斯特菲·马维迪迪",
+    "nationality": [
+      "CD",
+      "gb-eng"
+    ],
+    "position": "FW",
+    "team": "loan",
+    "avatar": "",
+    "onLoanTo": "沃特福德",
+    "onLoanUntil": "2027-05-31"
+  },
+  {
+    "number": null,
+    "enFirst": "Oliver",
+    "enLast": "Skipp",
+    "displayName": "奥利弗·斯基普",
+    "nationality": [
+      "gb-eng"
+    ],
+    "position": "MF",
+    "team": "loan",
+    "avatar": "",
+    "onLoanTo": "查尔顿",
+    "onLoanUntil": "2027-06-30"
+  },
+  {
+    "number": null,
+    "enFirst": "Michael",
+    "enLast": "Golding",
+    "displayName": "迈克尔·戈尔丁",
+    "nationality": [
+      "gb-eng",
+      "IE"
+    ],
+    "position": "MF",
+    "team": "loan",
+    "avatar": "",
+    "onLoanTo": "什鲁斯伯里",
+    "onLoanUntil": "2027-05-31"
+  }
+]
