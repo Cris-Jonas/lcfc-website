@@ -27,7 +27,9 @@ dl_cdnjs() { # $1=relpath  $2=out
 }
 
 echo "== 创建目录 =="
-mkdir -p "$V/echarts" "$V/flag-icon/css" "$V/flag-icon/flags" "$V/font-awesome/css" "$V/font-awesome/webfonts"
+mkdir -p "$V/echarts" "$V/flag-icon/css" "$V/flag-icon/flags/4x3" "$V/flag-icon/flags/1x1" "$V/font-awesome/css" "$V/font-awesome/webfonts"
+# 清理旧版平铺到 flags/ 的旗子（路径已改为 flags/4x3 与 flags/1x1）
+rm -f "$V/flag-icon/flags/"*.svg
 
 echo "== 下载 echarts =="
 dl_npm "echarts@5/dist/echarts.min.js" "$V/echarts.min.js"
@@ -36,10 +38,13 @@ echo "== 下载 flag-icon-css =="
 dl_npm "flag-icon-css@3.5.0/css/flag-icon.min.css" "$V/flag-icon/css/flag-icon.min.css"
 # 下载常用国旗（英、中、及主要足球国家），如需更多可在下面追加
 # 注意：gb-eng/gb-sct/gb-wls/gb-nir 是英国构成国旗帜（flag-icon-css 支持）
+# 关键：flag-icon-css 的 CSS 按 ../flags/4x3/xx.svg 与 ../flags/1x1/xx.svg 引用，
+#       因此必须分别放进 4x3 与 1x1 两层目录，否则国旗全部 404 空白。
 FLAGS="gb gb-eng gb-sct gb-wls gb-nir cn fr es de it pt br ar be hr dk nl se no pl jp kr us \
 cd ng ba au ie jm fi ml tr ma sn gh cm eg za ch at cz ro ua rs si sk hu gr mx co cl uy pe ec ve py cr ca"
 for f in $FLAGS; do
-  dl_npm "flag-icon-css@3.5.0/flags/4x3/$f.svg" "$V/flag-icon/flags/$f.svg"
+  dl_npm "flag-icon-css@3.5.0/flags/4x3/$f.svg" "$V/flag-icon/flags/4x3/$f.svg"
+  dl_npm "flag-icon-css@3.5.0/flags/1x1/$f.svg" "$V/flag-icon/flags/1x1/$f.svg"
 done
 
 echo "== 下载 font-awesome =="
