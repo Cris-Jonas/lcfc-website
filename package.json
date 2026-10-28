@@ -1,8 +1,24 @@
 {
   "name": "lcfc-website",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "莱斯特城球队管理网站 - 自托管部署版（阿里云轻量服务器）",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "import": "node src/importers/run.js",
+    "seed": "node src/importers/seed.js",
+    "vendor": "bash scripts/vendor.sh"
+  },
   "dependencies": {
-    "@supabase/supabase-js": "^2.39.0",
-    "jsonwebtoken": "^9.0.2"
+    "better-sqlite3": "^11.3.0",
+    "cheerio": "^1.0.0",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.5.0"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

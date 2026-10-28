@@ -951,3 +951,56 @@ body {
     border: 2px dashed rgba(0, 47, 167, 0.10);
     grid-column: 1 / -1;
 }
+
+/* ===== 自建积分榜表格 ===== */
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 22px rgba(0, 47, 167, 0.08);
+    font-size: 0.95rem;
+}
+.standings-table thead th {
+    background: linear-gradient(135deg, #002FA7, #1a4fd0);
+    color: #fff;
+    padding: 0.7rem 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+}
+.standings-table tbody td {
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #eef1f8;
+    color: #2a3550;
+}
+.standings-table tbody tr:nth-child(even) { background: #f7f9ff; }
+.standings-table tbody tr:hover { background: #eef3ff; }
+.standings-table .st-team { text-align: left; font-weight: 600; }
+.standings-table .st-points { font-weight: 700; color: #002FA7; }
+.standings-table tbody tr:first-child { background: #fff7e0; }
+
+/* ===== 积分榜编辑弹窗 ===== */
+.standings-edit-hint {
+    font-size: 0.8rem;
+    color: #6b7a93;
+    background: #f4f7ff;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.5;
+}
+.standings-textarea {
+    width: 100%;
+    min-height: 320px;
+    border: 1.5px solid #d8e0f3;
+    border-radius: 12px;
+    padding: 0.8rem;
+    font-family: "SF Mono", "Fira Code", Consolas, monospace;
+    font-size: 0.82rem;
+    resize: vertical;
+    color: #2a3550;
+}
+.standings-textarea:focus { outline: none; border-color: #002FA7; }
