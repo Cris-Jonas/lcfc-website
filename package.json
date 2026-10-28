@@ -8,6 +8,7 @@
     "start": "node server.js",
     "dev": "node server.js",
     "import": "node src/importers/run.js",
+    "import:roster": "node src/importers/bulk.js",
     "seed": "node src/importers/seed.js",
     "vendor": "bash scripts/vendor.sh"
   },

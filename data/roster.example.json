@@ -1,0 +1,34 @@
+[
+  {
+    "number": 1,
+    "enFirst": "Mads",
+    "enLast": "Hermansen",
+    "displayName": "赫尔曼森",
+    "nationality": ["DK"],
+    "position": "GK",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 9,
+    "enFirst": "Jamie",
+    "enLast": "Vardy",
+    "displayName": "瓦尔迪",
+    "nationality": ["GB"],
+    "position": "FW",
+    "team": "first",
+    "avatar": ""
+  },
+  {
+    "number": 30,
+    "enFirst": "Example",
+    "enLast": "Loanee",
+    "displayName": "示例租借球员",
+    "nationality": ["GB"],
+    "position": "MF",
+    "team": "loan",
+    "onLoanTo": "示例租借俱乐部",
+    "onLoanUntil": "2026-06-30",
+    "avatar": ""
+  }
+]
